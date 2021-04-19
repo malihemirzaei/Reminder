@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+
+    <div style="margin-left: 40px">
+        <h3>Select a priority to see its tasks:</h3>
+        <a href="{% url 'task_a' %}">
+            <li> {% include 'todo/img/a.svg' %}</li>
+        </a>
+        <a href="{% url 'task_b' %}">
+            <li>{% include 'todo/img/b.svg' %}</li>
+        </a>
+        <a href="{% url 'task_c' %}"><li>{% include 'todo/img/c.svg' %}</li></a>
+
+    </div>
+{% endblock %}

@@ -1,0 +1,118 @@
+
+body {
+
+    margin: 0;
+    background-color: burlywood;
+
+}
+
+.panel-body {
+    background-color: white;
+    font-size: 30px;
+    margin-left: 50px;
+    margin-right: 50px;
+    border-radius: 40px;
+}
+
+aside {
+    border-radius: 30px;
+    float: left;
+    background: #3F834F;
+    height: 100vh;
+    width: 100px;
+}
+
+.aside {
+    border-radius: 30px;
+    float: right;
+    background: rgb(239, 245, 246);
+    height: 100vh;
+    width: 400px;
+}
+
+.logo {
+    width: 680px;
+    margin-left: 40px;
+}
+
+.title {
+    color: #3F834F;
+    font-weight: bold;
+    margin-bottom: 10px;
+    position: relative;
+    left: 50px;
+    top: 27px;
+    text-decoration: none;
+}
+
+ul {
+    list-style: none;
+    padding: 15px;
+}
+
+.items {
+
+    width: 300px;
+    height: auto;
+    min-height: 300px;
+    background-color: aquamarine;
+    border-radius: 10px;
+
+
+}
+
+.task-input {
+    background-color: #3F834F;
+    border-radius: 5px;
+    margin-left: 45px;
+    margin-top: 25px;
+}
+
+
+main {
+    border-radius: 30px;
+    height: 100vh;
+}
+
+.btn_pagination {
+    background-color: #4c8c5b;
+    border-radius: 5px;
+    width: 60px;
+}
+
+.errorlist {
+    font-size: 20px;
+    color: coral;
+}
+
+
+label {
+    font-size: 13px;
+}
+
+input {
+    width: 300px;
+    height: 30px;
+    border: 0;
+}
+
+
+form {
+    width: 300px;
+    margin: 0 auto;
+}
+
+.text {
+    margin-left: 150px;
+    font-size: 25px;
+    color: darkgreen;
+    margin-top: 60px;
+}
+
+.girl {
+    position: absolute;
+    width: 350px;
+    height: 400px;
+    right: 80px;
+    margin-top: 30px
+}

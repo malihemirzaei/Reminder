@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+    <form action="" method="post" style="font-size: 20px">
+        <h4>Add Category:</h4>
+        {% csrf_token %}
+        {{ form }}
+        <button class="btn_pagination" type="submit">save</button>
+
+    </form>
+    <br>
+    <div style="font-size: 25px;margin-left: 5px;color: darkgreen">{{ note }}</div>
+    <img style="margin-left: 30px" alt="img" src="{% static 'images/rem.PNG' %}">
+{% endblock %}

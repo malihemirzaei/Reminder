@@ -1,0 +1,64 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+    <div>
+        <ul>
+            <p>Tasks:</p>
+            {% for task in object_list %}
+                <li class="items">
+                    <div style="margin: 30px;font-size: 20px"><br>
+                        <h1>{{ task.title|title }}</h1> {{ task.priority }}<br>{{ task.content }}<br><br>{{task.time_to_do}}
+                        {% if  task.done %}
+                            <p style="font-size: 30px;font-weight: bold;color: #0e7726">DONE</p>
+                        {% endif %}</div>
+
+
+                    <div style="margin-left: 10px">
+                        <a href={% url 'edit_task' task.id %}>
+                            <div style="float: left">{% include 'todo/img/pencil.svg' %}</div>
+                        </a>
+                        <a href={% url 'task_delete' task.id %}>
+                            <div style="float: left">{% include 'todo/img/remove.svg' %}</div>
+                        </a>
+                        {% if not task.done %}
+                            <a href={% url 'task_done' task.id %}>
+                                <div style="float: right">{% include 'todo/img/checked.svg' %}</div>
+                            </a>
+                        {% endif %}
+
+
+                    </div>
+                </li>
+
+            {% endfor %}
+        </ul>
+
+        <br>
+        <div class="pagination" style="font-size: 20px">
+    <span class="step-links">
+        {% if page_obj.has_previous %}
+            <button class="btn_pagination"><a style="text-decoration: none;color: black"
+                                              href="?page=1"> first</a></button>
+            <button class="btn_pagination">   <a style="text-decoration: none;color: black"
+                                                 href="?page={{ page_obj.previous_page_number }}">previous</a></button>
+        {% endif %}
+        {% if task_list %}
+            <span class="current" style="color: #3F834F">
+            Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}
+        </span>
+        {% endif %}
+
+
+        {% if page_obj.has_next %}
+            <button class="btn_pagination"> <a style="text-decoration: none;color: black"
+                                               href="?page={{ page_obj.next_page_number }}">next</a></button>
+            <button class="btn_pagination">  <a style="text-decoration: none;color: black"
+                                                href="?page={{ page_obj.paginator.num_pages }}">last </a></button>
+        {% endif %}
+    </span>
+        </div>
+    </div>
+    {#        <a href="{% url 'sort_task' %}">sort tasks </a>#}
+
+{% endblock %}
+

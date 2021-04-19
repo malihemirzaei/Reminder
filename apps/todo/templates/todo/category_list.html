@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+    <div>
+        <ul>
+            <h4>Categories:</h4>
+            {% for category in object_list %}
+                <li>{{ category.name }} <a style='font-size: 20px'
+                                           href={% url "category_delete" category.id %}>{% include 'todo/img/remove1.svg' %}</a>
+                </li>
+            {% endfor %}
+            <br>
+            <div class="pagination" style="font-size: 20px">
+    <span class="step-links">
+        {% if page_obj.has_previous %}
+            <button class="btn_pagination"><a style="text-decoration: none;color: black"
+                                              href="?page=1"> first</a></button>
+            <button class="btn_pagination">   <a style="text-decoration: none;color: black"
+                                                 href="?page={{ page_obj.previous_page_number }}">previous</a></button>
+        {% endif %}
+        {% if task_list %}
+            <span class="current" style="color: #3F834F">
+            Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}
+        </span>
+        {% endif %}
+
+
+        {% if page_obj.has_next %}
+            <button class="btn_pagination"> <a style="text-decoration: none;color: black"
+                                               href="?page={{ page_obj.next_page_number }}">next</a></button>
+            <button class="btn_pagination">  <a style="text-decoration: none;color: black"
+                                                href="?page={{ page_obj.paginator.num_pages }}">last </a></button>
+        {% endif %}
+    </span>
+            </div>
+
+        </ul>
+    </div>
+
+
+{% endblock %}
+

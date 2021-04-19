@@ -1,0 +1,70 @@
+
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" type="text/css" href="{% static 'todo/style.css' %}">
+    <meta charset="UTF-8">
+    <title>Todo List </title>
+</head>
+<body>
+<div class="panel-body">
+    <header>
+
+    </header>
+    <aside>
+        <div style="margin-left: 5px;padding: 10px">
+            <p><a href="{% url 'past_task' %}">{% include 'todo/img/clock.svg' %}</a></p>
+            <p><a href="{% url "task_list" %}">{% include 'todo/img/task-list.svg' %}</a></p>
+            <p><a href="{% url 'task' %}">{% include 'todo/img/add.svg' %}</a><br></p>
+            <p><a href="{% url 'task-priority' %}">{% include 'todo/img/clipboard (1).svg' %}</a></p>
+            <p><a href="{% url 'add_category' %}">{% include 'todo/img/categories.svg' %}</a></p>
+            <p><a href="{% url 'category_list' %}">{% include 'todo/img/options.svg' %}</a></p>
+        </div>
+    </aside>
+    <div class="aside">
+
+        <div>{% block content %}
+                        <img class="girl" src="{% static 'images/4.PNG' %}" style="position: absolute;width: 350px;height: 400px;right: 80px;margin-top: 30px">
+
+
+
+        {% endblock %}</div>
+    </div>
+    <main>
+        <section>
+            <a href="{% url 'base' %}" class="title">Reminder</a>
+            <img class="logo" src="{% static 'images/girl.PNG' %}">
+            <div class="text"><p>No matter how well you set up your todo list and calendar, you aren’t going to get
+                things done unless you
+                have a reliable way of reminding yourself to actually do them. </p>
+                <p> Fortunately, there are ways to make sure we remember to check our lists — and to remember to do the
+                    things we need to do, whether they’re on a list or not. </p></div>
+        </section>
+
+
+    </main>
+
+</div>
+</body>
+</html>
+
+{##}
+{#<body>#}
+{#    <img src="{% static 'images/images.jpg' %}" class="logo">#}
+{#<div class="sidenav">#}
+{#    <h style="color: #f1f1f1">latest tasks</h>#}
+{#    {% t_recent_tasks %}#}
+{##}
+{#    <a href="{% url 'past_task' %}">Due tasks</a>#}
+{#    <br>#}
+{#    <a href="{% url 'categories' %}">categories</a>#}
+{#    <br>#}
+{#    <a href="{% url 'empty_categories' %}">empty categories</a>#}
+{##}
+{##}
+{#</div>#}
+{#<div>{% block content %}#}
+{#{% endblock %}</div>#}
+{#</body>#}
+{#</html>#}
