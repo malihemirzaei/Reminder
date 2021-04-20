@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect, get_object_or_404
+from django.utils.timezone import now
 from django.views import View
-from django.views.generic import ListView, UpdateView
+from django.views.generic import ListView, UpdateView, TemplateView
 
 from apps.todo.forms import RegisterTaskModelForm, AddCategoryForm
 from apps.todo.models import Task, Category
@@ -99,3 +100,13 @@ def task_done(request, pk):
     task.done = True
     task.save()
     return redirect('task_list')
+
+
+class LatestTask(TemplateView):
+    template_name = 'base.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['latest_Task'] = Task.objects.filter(time_to_do__gte=now(), done=False)[:3]
+        context['now'] = now()
+        return context

@@ -19,11 +19,10 @@ from django.contrib import admin
 from django.urls import path, include
 from django.views.generic import TemplateView
 
-from apps.todo.views import TaskListClassView
+from apps.todo.views import TaskListClassView, LatestTask
 
 urlpatterns = [
-    path('', TemplateView.as_view(template_name='base.html'),name='base'),
+    path('', LatestTask.as_view(), name='base'),
     path('admin/', admin.site.urls),
     path('tasks/', include("apps.todo.urls")),
 ]
-

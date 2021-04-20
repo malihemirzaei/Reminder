@@ -1,4 +1,3 @@
-
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
@@ -25,7 +24,17 @@
     <div class="aside">
 
         <div>{% block content %}
-                        <img class="girl" src="{% static 'images/4.PNG' %}" style="position: absolute;width: 350px;height: 400px;right: 80px;margin-top: 30px">
+            <div>
+                <ul>
+                    <h4 style="color: darkgreen">{{ now }}</h4>
+                    <h5>3 of your closest tasks:</h5>
+                    {% for t in latest_Task %}
+                        <a href="{% url 'task_list' %}">
+                            <li>{{ t }}</li>
+                        </a>
+                    {% endfor %}
+                </ul>
+            </div>
 
 
 
